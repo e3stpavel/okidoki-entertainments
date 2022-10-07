@@ -1,4 +1,3 @@
-import App from '../../src/App'
-// TODO: fix aliases
+import App from '~/.'
 
 export default App
