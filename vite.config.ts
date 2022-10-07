@@ -10,12 +10,12 @@ export default defineConfig({
   resolve: {
     alias: {
       'react-native': 'react-native-web',
-      '~/': `${path.resolve(__dirname, 'src')}`,
-      '@/': `${path.resolve(__dirname, 'web/src')}`,
+      '~': `${path.resolve(__dirname, 'src')}`,
+      '@': `${path.resolve(__dirname, 'web/src')}`,
     },
   },
-  root: './web',
-  publicDir: './assets',
+  root: `${path.resolve(__dirname, 'web')}`,
+  publicDir: `${path.resolve(__dirname, 'assets')}`,
   // cacheDir: '',
   server: {
     port: 3000,

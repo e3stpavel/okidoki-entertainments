@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, Text, View } from 'react-native'
-
-import Comp from './comp'
+import { Image, StyleSheet, Text, View } from 'react-native'
+import Comp from '~/comp'
+import * as v from '~/../assets/favicon.png'
 
 const styles = StyleSheet.create({
   container: {
@@ -12,11 +12,14 @@ const styles = StyleSheet.create({
   },
 })
 
+console.log(v)
+
 export default function App() {
   return (
     <View style={styles.container}>
       <Text>Open up App.tsx to start working on your app!</Text>
       <Comp />
+      <Image source={v.default} />
       <StatusBar style="auto" />
     </View>
   )

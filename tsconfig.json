@@ -6,6 +6,5 @@
       "~/*": ["./src/*"]
     }
   },
-  "include": ["web/src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
