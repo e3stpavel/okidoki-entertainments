@@ -10,6 +10,7 @@ export default defineConfig({
   resolve: {
     alias: {
       'react-native': 'react-native-web',
+      '~/composables': '@/composables',
       '~': `${path.resolve(__dirname, 'src')}`,
       '@': `${path.resolve(__dirname, 'web/src')}`,
     },
