@@ -1,14 +1,14 @@
 import { StatusBar } from 'expo-status-bar'
 import { Image, StyleSheet, Text, View } from 'react-native'
 import type { ImageSourcePropType } from 'react-native'
-import favicon from '~/../assets/images/favicon.png'
-import Comp from '~/comp'
-import { useCustomFonts } from '~/composables/fonts'
+import favicon from '@assets/images/favicon.png'
+import { useCustomFonts } from '@composables/fonts'
 
-import CarmenSansMedium from '~/../assets/fonts/carmen-sans/CarmenSans-Medium.ttf'
-import CarmenSansSemiBold from '~/../assets/fonts/carmen-sans/CarmenSans-SemiBold.ttf'
-import CarmenSansBold from '~/../assets/fonts/carmen-sans/CarmenSans-Bold.ttf'
-import CarmenSansExtraBold from '~/../assets/fonts/carmen-sans/CarmenSans-ExtraBold.ttf'
+import CarmenSansMedium from '@assets/fonts/carmen-sans/CarmenSans-Medium.ttf'
+import CarmenSansSemiBold from '@assets/fonts/carmen-sans/CarmenSans-SemiBold.ttf'
+import CarmenSansBold from '@assets/fonts/carmen-sans/CarmenSans-Bold.ttf'
+import CarmenSansExtraBold from '@assets/fonts/carmen-sans/CarmenSans-ExtraBold.ttf'
+import Comp from '~/comp'
 
 const styles = StyleSheet.create({
   container: {

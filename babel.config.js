@@ -6,6 +6,9 @@ module.exports = function (api) {
       ['module-resolver', {
         alias: {
           '~': './src',
+          '@composables': './src/composables',
+          '@features': './src/features',
+          '@assets': './assets',
         },
       }],
     ],
