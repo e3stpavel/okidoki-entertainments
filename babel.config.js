@@ -6,6 +6,7 @@ module.exports = function (api) {
       ['module-resolver', {
         alias: {
           '~': './src',
+          'theme': './theme.config.ts',
           '@composables': './src/composables',
           '@components': './src/components',
           '@features': './src/features',
