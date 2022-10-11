@@ -8,7 +8,8 @@
       "@composables/*": ["src/composables/*"],
       "@features/*": ["src/features/*"],
       "@assets/*": ["assets/*"]
-    }
+    },
+    "module": "esnext"
   },
   "references": [{ "path": "./tsconfig.node.json" }]
 }
