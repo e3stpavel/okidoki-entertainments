@@ -20,7 +20,7 @@ const Image = <T extends typeof import('*.jpg') | typeof import('*.png')>(props:
         const { default: src } = await props.source
         setSource(src as ImageSourcePropType)
 
-        const uri = typeof source === 'number' ? ReactNativeImage.resolveAssetSource(source).uri : src
+        const uri = typeof src === 'number' ? ReactNativeImage.resolveAssetSource(src).uri : src
 
         ReactNativeImage.getSize(uri, (width, height) => setImageSize({ width, height }))
       }
