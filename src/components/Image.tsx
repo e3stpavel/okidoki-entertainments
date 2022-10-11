@@ -2,7 +2,7 @@ import type { ImageSourcePropType, ImageProps as ReactNativeImageProps } from 'r
 import { Image as ReactNativeImage } from 'react-native'
 
 import { useEffect, useState } from 'react'
-import { Skeleton } from '~/components'
+import Skeleton from '~/components/Skeleton'
 import type { Size } from '~/types'
 
 interface ImageProps<T> extends Omit<ReactNativeImageProps, 'source'> {
