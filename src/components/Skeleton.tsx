@@ -1,13 +1,12 @@
 // import type { LayoutChangeEvent } from 'react-native'
 import { Animated, StyleSheet } from 'react-native'
 // import { useCallback } from 'react'
+import Theme from 'theme'
 import type { Size } from '~/types'
 
 const styles = StyleSheet.create({
   view: {
-    backgroundColor: '#aaaaaa',
-    // width: 100,
-    // height: 100,
+    backgroundColor: Theme.colors['gray-300'],
   },
 })
 
