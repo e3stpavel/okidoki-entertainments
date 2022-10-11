@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar'
 import { StyleSheet, Text, View } from 'react-native'
 import { useCustomFonts } from '@composables/fonts'
 
-import Image from './components/Image'
+import { Image } from './components/'
 import Comp from '~/comp'
 
 const styles = StyleSheet.create({
