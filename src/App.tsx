@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import { useCustomFonts } from '@composables/fonts'
 
 import Image from './components/Image'
+import { usePixel } from '~/composables/pixels'
 import Comp from '~/comp'
 
 const styles = StyleSheet.create({
@@ -19,6 +20,8 @@ const styles = StyleSheet.create({
 })
 
 export default function App() {
+  const fontSize = usePixel(14)
+
   const { isFontsLoaded, onLayoutRootView } = useCustomFonts({
     'Carmen Sans Medium': import('@assets/fonts/carmen-sans/CarmenSans-Medium.ttf'),
     'Carmen Sans SemiBold': import('@assets/fonts/carmen-sans/CarmenSans-SemiBold.ttf'),
@@ -31,7 +34,7 @@ export default function App() {
 
   return (
     <View style={styles.container} onLayout={ onLayoutRootView }>
-      <Text style={{ fontFamily: 'Carmen Sans Medium' }}>Open up App.tsx to start working on your app!</Text>
+      <Text style={{ fontFamily: 'Carmen Sans Medium', fontSize }}>Open up App.tsx to start working on your app!</Text>
       <Comp />
       <Image style={ styles.image } source={ import('@assets/images/favicon.png') } />
       <StatusBar style="auto" />

@@ -38,8 +38,7 @@ const Skeleton = (props: { overlay: Size; rounded?: boolean }) => {
     outputRange: [Theme.colors['gray-300'], Theme.colors['gray-100']],
   })
 
-  // TODO: use responsive pixels for default value
-  const borderRadius = props.rounded ? 9999 : 18
+  const borderRadius = props.rounded ? 9999 : 8
 
   return (
     <Animated.View
