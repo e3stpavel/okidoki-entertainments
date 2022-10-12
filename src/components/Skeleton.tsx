@@ -1,6 +1,5 @@
-// import type { LayoutChangeEvent } from 'react-native'
-import { Animated, StyleSheet } from 'react-native'
-// import { useCallback } from 'react'
+import { useEffect, useRef } from 'react'
+import { Animated, Easing, StyleSheet } from 'react-native'
 import Theme from 'theme'
 import type { Size } from '~/types'
 
@@ -10,17 +9,49 @@ const styles = StyleSheet.create({
   },
 })
 
-const Skeleton = (props: { overlay: Size }) => {
-  // const onLayoutSkeletonView = useCallback((event: LayoutChangeEvent) => {
-  //   const { width, height } = event.nativeEvent.layout
-  //   console.log({ width, height })
-  // }, [])
+const Skeleton = (props: { overlay: Size; rounded?: boolean }) => {
+  const color = useRef(new Animated.Value(0)).current
 
-  console.log(props.overlay)
+  useEffect(() => {
+    const config = {
+      duration: 750,
+      easing: Easing.inOut(Easing.ease),
+      useNativeDriver: false,
+    }
+
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(color, {
+          toValue: 1,
+          ...config,
+        }),
+        Animated.timing(color, {
+          toValue: 0,
+          ...config,
+        }),
+      ]),
+    ).start()
+  }, [color])
+
+  const backgroundColor = color.interpolate({
+    inputRange: [0, 1],
+    outputRange: [Theme.colors['gray-300'], Theme.colors['gray-100']],
+  })
+
+  // TODO: use responsive pixels for default value
+  const borderRadius = props.rounded ? 9999 : 18
 
   return (
     <Animated.View
-      style={{ width: props.overlay.width, height: props.overlay.height, ...styles.view }} />
+      style={[
+        styles.view,
+        {
+          width: props.overlay.width,
+          height: props.overlay.height,
+          backgroundColor,
+          borderRadius,
+        },
+      ]} />
   )
 }
 

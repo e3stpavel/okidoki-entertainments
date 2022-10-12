@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar'
 import { StyleSheet, Text, View } from 'react-native'
 import { useCustomFonts } from '@composables/fonts'
 
-import { Image } from './components/'
+import Image from './components/Image'
 import Comp from '~/comp'
 
 const styles = StyleSheet.create({
@@ -33,7 +33,6 @@ export default function App() {
     <View style={styles.container} onLayout={ onLayoutRootView }>
       <Text style={{ fontFamily: 'Carmen Sans Medium' }}>Open up App.tsx to start working on your app!</Text>
       <Comp />
-      {/* <Image style={ styles.image } source={ favicon as ImageSourcePropType } /> */}
       <Image style={ styles.image } source={ import('@assets/images/favicon.png') } />
       <StatusBar style="auto" />
     </View>
