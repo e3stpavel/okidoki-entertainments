@@ -30,16 +30,11 @@ const Image = <T extends typeof import('*.jpg') | typeof import('*.png')>(props:
     })()
   }, [])
 
-  // TODO: use skeleton to enhance UX, e.g. get approx Image size and render gray div with infinite animation
-  // if (!source)
-  //   return <Text style={{ fontFamily: 'Carmen Sans Medium' }}>Loading...</Text>
-
-  // return (
-  //   <ReactNativeImage {...props} source={ source } />
-  // )
+  if (!source)
+    return <Skeleton overlay={ imageSize } />
 
   return (
-    <Skeleton overlay={ imageSize } />
+    <ReactNativeImage {...props} source={ source } />
   )
 }
 

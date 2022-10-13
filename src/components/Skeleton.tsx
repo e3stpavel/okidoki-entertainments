@@ -16,7 +16,7 @@ const Skeleton = (props: { overlay: Size; rounded?: boolean }) => {
     const config = {
       duration: 750,
       easing: Easing.inOut(Easing.ease),
-      useNativeDriver: false,
+      useNativeDriver: true,
     }
 
     Animated.loop(
@@ -33,12 +33,13 @@ const Skeleton = (props: { overlay: Size; rounded?: boolean }) => {
     ).start()
   }, [color])
 
+  // useUnmount(() => color.stopAnimation())
+
   const backgroundColor = color.interpolate({
     inputRange: [0, 1],
     outputRange: [Theme.colors['gray-300'], Theme.colors['gray-100']],
   })
 
-  // TODO: use responsive pixels for default value
   const borderRadius = props.rounded ? 9999 : 18
 
   return (
