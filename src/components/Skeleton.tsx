@@ -33,8 +33,6 @@ const Skeleton = (props: { overlay: Size; rounded?: boolean }) => {
     ).start()
   }, [color])
 
-  // useUnmount(() => color.stopAnimation())
-
   const backgroundColor = color.interpolate({
     inputRange: [0, 1],
     outputRange: [Theme.colors['gray-300'], Theme.colors['gray-100']],
