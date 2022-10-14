@@ -1,4 +1,4 @@
-import { defineCustomTheme } from '~/composables/customTheme'
+import { defineCustomTheme } from '~/composables/theme'
 
 export default defineCustomTheme({
   colors: {
