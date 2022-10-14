@@ -1,14 +1,10 @@
 import { StatusBar } from 'expo-status-bar'
-import { Image, StyleSheet, Text, View } from 'react-native'
-import type { ImageSourcePropType } from 'react-native'
-import favicon from '~/../assets/images/favicon.png'
-import Comp from '~/comp'
-import { useCustomFonts } from '~/composables/fonts'
+import { StyleSheet, Text, View } from 'react-native'
+import { useCustomFonts } from '@composables/fonts'
 
-import CarmenSansMedium from '~/../assets/fonts/carmen-sans/CarmenSans-Medium.ttf'
-import CarmenSansSemiBold from '~/../assets/fonts/carmen-sans/CarmenSans-SemiBold.ttf'
-import CarmenSansBold from '~/../assets/fonts/carmen-sans/CarmenSans-Bold.ttf'
-import CarmenSansExtraBold from '~/../assets/fonts/carmen-sans/CarmenSans-ExtraBold.ttf'
+import Image from './components/Image'
+import { usePixel } from '~/composables/pixels'
+import Comp from '~/comp'
 
 const styles = StyleSheet.create({
   container: {
@@ -24,11 +20,13 @@ const styles = StyleSheet.create({
 })
 
 export default function App() {
+  const fontSize = usePixel(14)
+
   const { isFontsLoaded, onLayoutRootView } = useCustomFonts({
-    'Carmen Sans Medium': CarmenSansMedium,
-    'Carmen Sans SemiBold': CarmenSansSemiBold,
-    'Carmen Sans Bold': CarmenSansBold,
-    'Carmen Sans ExtraBold': CarmenSansExtraBold,
+    'Carmen Sans Medium': import('@assets/fonts/carmen-sans/CarmenSans-Medium.ttf'),
+    'Carmen Sans SemiBold': import('@assets/fonts/carmen-sans/CarmenSans-SemiBold.ttf'),
+    'Carmen Sans Bold': import('@assets/fonts/carmen-sans/CarmenSans-Bold.ttf'),
+    'Carmen Sans ExtraBold': import('@assets/fonts/carmen-sans/CarmenSans-ExtraBold.ttf'),
   })
 
   if (!isFontsLoaded)
@@ -36,9 +34,9 @@ export default function App() {
 
   return (
     <View style={styles.container} onLayout={ onLayoutRootView }>
-      <Text style={{ fontFamily: 'Carmen Sans Medium' }}>Open up App.tsx to start working on your app!</Text>
+      <Text style={{ fontFamily: 'Carmen Sans Medium', fontSize }}>Open up App.tsx to start working on your app!</Text>
       <Comp />
-      <Image style={ styles.image } source={ favicon as ImageSourcePropType } />
+      <Image style={ styles.image } source={ import('@assets/images/favicon.png') } />
       <StatusBar style="auto" />
     </View>
   )

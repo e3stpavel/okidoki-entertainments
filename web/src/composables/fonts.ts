@@ -1,10 +1,10 @@
-import type { FontSource } from 'expo-font'
 import { useCallback, useEffect, useState } from 'react'
 
-export const useCustomFonts = (map: Record<string, FontSource>) => {
+export const useCustomFonts = (_map: Record<string, Promise<typeof import('*.ttf') | typeof import('*.otf')>>) => {
   const [isFontsLoaded, setIsFontsLoaded] = useState(false)
 
-  const fontFaceMap = Object.entries(map).map(async ([name, source]) => {
+  const map = Object.entries(_map).map(async ([name, promise]) => {
+    const { default: source } = await promise
     const font = new FontFace(name, `url(${source})`)
 
     // @ts-expect-error FontFaceSet add method is missing from `lib.dom.d.ts`
@@ -17,19 +17,24 @@ export const useCustomFonts = (map: Record<string, FontSource>) => {
 
   useEffect(() => {
     (async () => {
-      await Promise.all([
-        ...fontFaceMap,
-        document.fonts.ready,
-      ])
+      try {
+        await Promise.all([
+          ...map,
+          document.fonts.ready,
+        ])
 
-      setIsFontsLoaded(true)
+        setIsFontsLoaded(true)
+      }
+      catch (error) {
+        console.error(error)
+      }
     })()
-  }, [fontFaceMap])
+  }, [])
 
   const onLayoutRootView = useCallback(async () => {
     // TODO: figure out what to do here and how splashscreen should look on web
     return new Promise<void>(resolve => resolve())
-  }, [fontFaceMap])
+  }, [isFontsLoaded])
 
   return { isFontsLoaded, onLayoutRootView }
 }
