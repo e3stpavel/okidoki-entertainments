@@ -34,6 +34,11 @@ export default function App() {
       <Text style={{ fontFamily: 'Carmen Sans Medium' }}>Open up App.tsx to start working on your app!</Text>
       <Comp />
       <Image style={ styles.image } source={ import('@assets/images/favicon.png') } />
+      <Image
+        source="https://images.unsplash.com/photo-1664127543072-8615a3b17367?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+        // by providing this properties you set the initial expected image size (skeleton will use that)
+        width={ 48 }
+        height={ 48 } />
       <StatusBar style="auto" />
     </View>
   )
