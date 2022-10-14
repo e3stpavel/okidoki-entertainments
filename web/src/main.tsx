@@ -14,8 +14,7 @@ import '@/index.css'
 document.title = expo.name
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  // can't use Animated in strict mode, oh that's modern React 👍
-  // <React.StrictMode>
-    <App />,
-  // </React.StrictMode>,
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
 )
