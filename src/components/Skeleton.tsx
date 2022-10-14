@@ -40,7 +40,11 @@ const Skeleton = (props: { overlay: Size; rounded?: boolean }) => {
     outputRange: [Theme.colors['gray-300'], Theme.colors['gray-100']],
   })
 
+<<<<<<< HEAD
   const borderRadius = props.rounded ? 9999 : 18
+=======
+  const borderRadius = props.rounded ? 9999 : 8
+>>>>>>> oke-8
 
   return (
     <Animated.View
